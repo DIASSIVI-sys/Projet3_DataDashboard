@@ -103,6 +103,78 @@ body {
     color: #fff;
 }
 
+/* --- Historique de recherche --- */
+.history-section {
+    margin-top: 2rem;
+}
+
+.history-section h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.history-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.history-tag {
+    background-color: #2b2b2b;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+.history-tag:hover {
+    background-color: #383838;
+}
+
+/* --- Prévisions sur 5 jours --- */
+.forecast-section {
+    margin-top: 2.5rem;
+}
+
+.forecast-section h3 {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.forecast-card {
+    padding: 1rem;
+}
+
+.forecast-date {
+    margin: 0 0 0.5rem 0;
+    color: #3498db;
+    font-size: 0.95rem;
+}
+
+.forecast-temp {
+    margin: 0.3rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.forecast-desc {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
 /* --- Responsive design --- */
 @media (max-width: 600px) {
     .navbar {
