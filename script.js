@@ -9,17 +9,24 @@ const descValueElem = document.getElementById("desc-value");
 const humidityValueElem = document.getElementById("humidity-value");
 const searchInput = document.getElementById("search-input");
 
-// Récupérer la météo par défaut (ex: Brazzaville)
+// Récupérer la météo d'une ville
 async function fetchWeather(city = "Brazzaville") {
     try {
+        cityNameElem.textContent = "Chargement...";
         const response = await fetch(`${BASE_URL}/weather?q=${city}&units=metric&lang=fr&appid=${API_KEY}`);
-        if (!response.ok) throw new Error("Ville introuvable");
+        
+        if (!response.ok) {
+            throw new Error("Ville introuvable");
+        }
         
         const data = await response.json();
         displayWeather(data);
     } catch (error) {
         console.error(error);
-        cityNameElem.textContent = "Ville introuvable ou erreur réseau";
+        cityNameElem.textContent = "Ville introuvable ❌";
+        tempValueElem.textContent = "--°C";
+        descValueElem.textContent = "--";
+        humidityValueElem.textContent = "--%";
     }
 }
 
@@ -31,11 +38,14 @@ function displayWeather(data) {
     const temp = Math.round(data.main.temp);
     tempValueElem.textContent = `${temp}°C`;
     
-    descValueElem.textContent = data.weather[0].description;
+    // Mettre la première lettre de la description en majuscule (Niveau 2)
+    let description = data.weather[0].description;
+    descValueElem.textContent = description.charAt(0).toUpperCase() + description.slice(1);
+    
     humidityValueElem.textContent = `${data.main.humidity}%`;
 }
 
-// Recherche par la barre de input
+// Moteur de recherche via la barre input (Niveau 2)
 searchInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         const city = searchInput.value.trim();
