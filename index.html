@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataDash - Météo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <h1>DataDash 🌤️</h1>
+        <div class="nav-right" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher une ville...">
+            </div>
+            <button id="theme-toggle" class="theme-btn" title="Changer de thème">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Dashboard Météo Actuelle -->
+        <section class="current-weather">
+            <h2 id="city-name">Chargement...</h2>
+            <div class="weather-grid">
+                <div class="widget">
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <h3>Température</h3>
+                    <p id="temp-value">--°C</p>
+                </div>
+                <div class="widget">
+                    <i class="fa-solid fa-cloud"></i>
+                    <h3>Description</h3>
+                    <p id="desc-value">--</p>
+                </div>
+                <div class="widget">
+                    <i class="fa-solid fa-droplet"></i>
+                    <h3>Humidité</h3>
+                    <p id="humidity-value">--%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historique de recherche (Niveau 3) -->
+        <section class="history-section">
+            <h3>Dernières recherches</h3>
+            <div id="history-tags" class="history-tags"></div>
+        </section>
+
+        <!-- Prévisions sur 5 jours (Niveau 3) -->
+        <section class="forecast-section">
+            <h3>Prévisions sur 5 jours</h3>
+            <div id="forecast-grid" class="forecast-grid">
+                <!-- Les cartes de prévisions s'injecteront ici -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
