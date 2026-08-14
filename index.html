@@ -11,8 +11,13 @@
 
     <header class="navbar">
         <h1>DataDash 🌤️</h1>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Rechercher une ville...">
+        <div class="nav-right" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher une ville...">
+            </div>
+            <button id="theme-toggle" class="theme-btn" title="Changer de thème">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+            </button>
         </div>
     </header>
 

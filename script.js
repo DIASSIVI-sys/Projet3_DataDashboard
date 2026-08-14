@@ -11,6 +11,29 @@ const searchInput = document.getElementById("search-input");
 const forecastGrid = document.getElementById("forecast-grid");
 const historyTagsElem = document.getElementById("history-tags");
 
+// --- Gestion du Thème (Sombre / Clair) ---
+const themeToggleBtn = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+
+// Vérifier si un thème était déjà enregistré en mémoire
+const savedTheme = localStorage.getItem("weather_theme");
+if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    themeIcon.classList.replace("fa-moon", "fa-sun");
+}
+
+themeToggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    
+    if (document.body.classList.contains("light-mode")) {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("weather_theme", "light");
+    } else {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("weather_theme", "dark");
+    }
+});
+
 // Récupérer la météo actuelle et les prévisions
 async function fetchWeather(city = "Brazzaville") {
     try {
